@@ -500,7 +500,7 @@ void BitcoinGUI::createActions()
         connect(backupWalletAction, &QAction::triggered, walletFrame, &WalletFrame::backupWallet);
         connect(changePassphraseAction, &QAction::triggered, walletFrame, &WalletFrame::changePassphrase);
         connect(unlockWalletAction, &QAction::triggered, walletFrame, &WalletFrame::unlockWallet);
-        connect(lockWalletAction, &QAction::triggered, walletFrame, &WalletFrame::lockWallet);
+        connect(lockWalletAction, &QAction::triggered, [this]{walletFrame->lockWallet(true); });
         connect(enableStakingAction, &QAction::triggered, [this]{ walletFrame->enableStaking(true); });
         connect(disableStakingAction, &QAction::triggered, [this]{ walletFrame->enableStaking(false); });
 
